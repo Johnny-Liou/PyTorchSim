@@ -2,3 +2,9 @@ __pycache__/
 PyTorchSimBackend/build/
 .vscode
 /output/
+/validation/gemm_candidates/
+/config_bGemm.sh
+/run_scaling_experiments.sh
+/run_apptainer.sh
+/run_test_bGemm.sh
+BUILD_INSTRUCTIONS.md
