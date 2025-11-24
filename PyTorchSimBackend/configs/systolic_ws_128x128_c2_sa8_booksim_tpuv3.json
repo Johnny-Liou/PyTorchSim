@@ -1,0 +1,31 @@
+{
+  "num_cores" : 2,
+  "core_freq" : 940,
+  "sram_size" : 65536,
+  "core_print_interval" : 10000,
+  "num_systolic_array_per_core" : 8,
+
+  "dram_type" : "ramulator2",
+  "dram_freq" : 940,
+  "dram_channels": 32,
+  "dram_req_size": 32,
+  "dram_latency" : 10,
+  "dram_size" : 32,
+  "dram_nbl" : 2,
+  "dram_print_interval": 10000,
+  "dram_config_path" : "../configs/ramulator2_configs/HBM2_TPUv3.yaml",
+
+  "icnt_type" : "booksim2",
+  "icnt_latency" : 7,
+  "icnt_freq" : 28000,
+  "icnt_node_per_core" : 1,
+  "icnt_config_path" : "../configs/booksim2_configs/fly_c2_m32.icnt",
+
+  "precision" : 4,
+  "scheduler" : "simple",
+  "num_partition" : 2,
+  "partition": {
+    "core_0":0,
+    "core_1":0
+  }
+}
