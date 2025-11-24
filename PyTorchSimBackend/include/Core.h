@@ -46,6 +46,11 @@ class Core {
   void sa_cycle();
   bool can_issue_compute(std::shared_ptr<Instruction>& inst);
   void update_stats();
+  
+  // SRAM bandwidth model helpers
+  size_t calculate_sram_traffic(std::shared_ptr<Instruction>& inst);
+  void charge_sram_bandwidth(std::shared_ptr<Instruction>& inst);
+  void refill_sram_bandwidth();
 
   /* Core id & config file */
   const uint32_t _id;
@@ -57,6 +62,17 @@ class Core {
 
   /* TMA Unit */
   TMA _tma;
+
+  /* SRAM Bandwidth Model */
+  bool _sram_bw_model_enabled;
+  double _sram_bytes_per_cycle;
+  double _sram_available_tokens;
+  
+  // Statistics
+  uint64_t _stat_sram_total_bytes_read;
+  uint64_t _stat_sram_total_bytes_written;
+  uint64_t _stat_tot_sram_total_bytes_read;
+  uint64_t _stat_tot_sram_total_bytes_written;
 
   /* cycle */
   cycle_type _core_cycle;

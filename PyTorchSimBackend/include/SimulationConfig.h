@@ -25,6 +25,10 @@ struct SimulationConfig {
   uint32_t num_stonne_per_core = 1;
   uint32_t num_stonne_port = 1;
 
+  /* SRAM Bandwidth Model config */
+  bool sram_model_enabled = false;
+  double sram_bytes_per_cycle = 1024.0;
+
   /* DRAM config */
   DramType dram_type;
   uint32_t dram_num_partitions = 1;

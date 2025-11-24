@@ -49,6 +49,12 @@ SimulationConfig initialize_config(json config) {
     parsed_config.num_stonne_port = config["num_stonne_port"];
   parsed_config.core_print_interval = get_config_value<uint32_t>(config, "core_print_interval");
 
+  /* SRAM Bandwidth Model config */
+  if (config.contains("sram_model_enabled"))
+    parsed_config.sram_model_enabled = config["sram_model_enabled"];
+  if (config.contains("sram_bytes_per_cycle"))
+    parsed_config.sram_bytes_per_cycle = config["sram_bytes_per_cycle"];
+
   /* Stonne config */ 
   if (config.contains("stonne_config_path"))
     parsed_config.stonne_config_path = config["stonne_config_path"];
