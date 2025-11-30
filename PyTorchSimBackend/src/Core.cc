@@ -36,7 +36,7 @@ Core::Core(uint32_t id, SimulationConfig config)
 
 bool Core::can_issue(const std::shared_ptr<Tile>& op) {
   /* Check SRAM is enough to run tile */
-  return _tiles.size() < 4  && !op->is_stonne_tile();
+  return _tiles.size() < 40  && !op->is_stonne_tile();
 }
 
 void Core::issue(std::shared_ptr<Tile> op) {
@@ -599,7 +599,7 @@ size_t Core::calculate_sram_traffic(std::shared_ptr<Instruction>& inst) {
       // - Outputs accumulated in registers, written once (amortized)
       // 
       // Conservative estimate accounting for all traffic: 1024 B/cycle
-      bytes_per_cycle = 1024;
+      bytes_per_cycle = 512 + 128; // Input + Output
       
       spdlog::trace("[Core {}][{}] SRAM traffic (MATMUL estimate): {} B/cycle", 
                     _id, _core_cycle, bytes_per_cycle);
